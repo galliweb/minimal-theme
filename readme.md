@@ -4,15 +4,10 @@ A clean, lightweight WordPress theme designed with simplicity in mind. This them
 
 ## Features
 
-- Classic WordPress editing experience
-- Mobile-responsive design
-- Customizable header and footer
-- Streamlined admin interface
-- No Gutenberg blocks
+- ACF & ACF Extended at it's core
+- No Gutenberg Blocks
+- Cleaned WP Backend
 - SCSS workflow for advanced styling
-- Clean, semantic HTML5
-- Accessible design
-- Performance-optimized
 
 ## Requirements
 
