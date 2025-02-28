@@ -14,6 +14,7 @@ if (!defined('ABSPATH')) {
 require_once get_template_directory() . '/admin-enhancements/admin-enhancements.php';
 require_once get_template_directory() . '/admin-enhancements/remove-comments.php';
 require_once get_template_directory() . '/admin-enhancements/dashboard.php';
+require_once get_template_directory() . '/admin-enhancements/seo.php';
 
 /**
  * Theme Setup
@@ -216,3 +217,16 @@ remove_action('wp_head', 'wp_shortlink_wp_head'); //removes shortlink.
 remove_action('wp_head', 'feed_links', 2); //removes feed links.
 remove_action('wp_head', 'feed_links_extra', 3);  //removes comments feed. 
 remove_action('wp_head', 'adjacent_posts_rel_link_wp_head'); // Removes prev and next links
+
+/**
+ * Remove WordPress Dashicons from the frontend
+ * Add this code to your theme's functions.php file
+ */
+function remove_dashicons_from_frontend()
+{
+    // Only remove Dashicons for non-admin users
+    if (!is_admin() && !is_customize_preview() && !is_user_logged_in()) {
+        wp_deregister_style('dashicons');
+    }
+}
+add_action('wp_enqueue_scripts', 'remove_dashicons_from_frontend', 999);
