@@ -1,0 +1,25 @@
+// Colors
+$primary-color: #333;
+$secondary-color: #666;
+$link-color: #0073aa;
+$link-hover-color: #005177;
+$background-color: #fff;
+$text-color: #333;
+$border-color: #ddd;
+
+// Dimensions
+$container-width: 1200px;
+
+// Breakpoints
+$breakpoint-mobile: 768px;
+
+:root {
+  --primary-color: #{$primary-color};
+  --secondary-color: #{$secondary-color};
+  --link-color: #{$link-color};
+  --link-hover-color: #{$link-hover-color};
+  --background-color: #{$background-color};
+  --text-color: #{$text-color};
+  --border-color: #{$border-color};
+  --container-width: #{$container-width};
+}

@@ -1,0 +1,31 @@
+{
+  "name": "minimal-theme",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+"sass": "sass scss/main.scss:css/style.css scss/admin/_admin.scss:admin-enhancements/css/admin.css scss/admin/_login.scss:admin-enhancements/css/login.css --style=compressed --source-map",
+"sass:watch": "sass --watch scss/main.scss:css/style.css scss/admin/_admin.scss:admin-enhancements/css/admin.css scss/admin/_login.scss:admin-enhancements/css/login.css --style=compressed --source-map",
+  "postcss": "postcss css/*.css admin-enhancements/css/*.css --use autoprefixer --replace",
+  "build": "npm-run-all sass postcss",
+  "start": "npm run sass:watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/galliweb/minimal-theme.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/galliweb/minimal-theme/issues"
+  },
+  "homepage": "https://github.com/galliweb/minimal-theme#readme",
+  "description": "",
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.5.3",
+    "postcss-cli": "^11.0.0",
+    "sass": "^1.85.1"
+  }
+}

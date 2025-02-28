@@ -1,35 +1,3 @@
-.nav-menus-php .major-publishing-actions {
-  justify-content: space-between;
-}
 
-.wp-core-ui select,
-input[type=date],
-input[type=datetime-local],
-input[type=datetime],
-input[type=email],
-input[type=month],
-input[type=number],
-input[type=password],
-input[type=search],
-input[type=tel],
-input[type=text],
-input[type=time],
-input[type=url],
-input[type=week],
-input[type=file],
-input[type=submit],
-input[type=checkbox],
-button[type=submit],
-[type=button],
-.acf-button-group label,
-textarea,
-.acf-btn,
-.page-title-action,
-#acf-admin-tools .acf-meta-box-wrap .acf-fields .acf-input {
-  border-radius: 0 !important;
-}
 
-/* Dashboard */
-#dashboard-widgets .postbox-container .empty-container {
-  display: none !important;
-}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJhZG1pbi5jc3MifQ== */
