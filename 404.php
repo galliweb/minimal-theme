@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying 404 pages (not found)
  */
@@ -15,7 +16,7 @@ get_header();
 
         <div class="page-content">
             <p><?php esc_html_e('It looks like nothing was found at this location. Maybe try going back to the home page?', 'minimal-classic'); ?></p>
-            
+
             <a href="<?php echo esc_url(home_url('/')); ?>" class="button">
                 <?php esc_html_e('Return to Home', 'minimal-classic'); ?>
             </a>
