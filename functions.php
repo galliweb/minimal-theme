@@ -11,10 +11,10 @@ if (!defined('ABSPATH')) {
 /**
  * Include admin enhancements
  */
-require_once get_template_directory() . '/cms/admin-enhancements.php';
-require_once get_template_directory() . '/cms/remove-comments.php';
-require_once get_template_directory() . '/cms/dashboard.php';
-require_once get_template_directory() . '/cms/seo.php';
+require_once get_template_directory() . '/inc/cms/admin-enhancements.php';
+require_once get_template_directory() . '/inc/cms/remove-comments.php';
+require_once get_template_directory() . '/inc/cms/remove-dashboard-widgets.php';
+require_once get_template_directory() . '/inc/templates/seo.php';
 
 /**
  * Theme Setup
