@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Classic Theme functions and definitions
+ * Minimal Theme functions and definitions
  */
 
 if (!defined('ABSPATH')) {
@@ -11,15 +11,15 @@ if (!defined('ABSPATH')) {
 /**
  * Include admin enhancements
  */
-require_once get_template_directory() . '/admin-enhancements/admin-enhancements.php';
-require_once get_template_directory() . '/admin-enhancements/remove-comments.php';
-require_once get_template_directory() . '/admin-enhancements/dashboard.php';
-require_once get_template_directory() . '/admin-enhancements/seo.php';
+require_once get_template_directory() . '/cms/admin-enhancements.php';
+require_once get_template_directory() . '/cms/remove-comments.php';
+require_once get_template_directory() . '/cms/dashboard.php';
+require_once get_template_directory() . '/cms/seo.php';
 
 /**
  * Theme Setup
  */
-function classic_theme_setup()
+function minimal_theme_setup()
 {
     // Add default posts and comments RSS feed links to head
     add_theme_support('automatic-feed-links');
@@ -41,33 +41,33 @@ function classic_theme_setup()
 
     // Register menu locations
     register_nav_menus(array(
-        'main-navigation' => __('Main Navigation', 'classic-theme'),
-        'mobile-navigation' => __('Mobile Navigation', 'classic-theme'),
-        'footer-navigation' => __('Footer Navigation', 'classic-theme'),
+        'main-navigation' => __('Main Navigation', 'minimal-theme'),
+        'mobile-navigation' => __('Mobile Navigation', 'minimal-theme'),
+        'footer-navigation' => __('Footer Navigation', 'minimal-theme'),
     ));
 }
-add_action('after_setup_theme', 'classic_theme_setup');
+add_action('after_setup_theme', 'minimal_theme_setup');
 
 /**
  * Enqueue scripts and styles
  */
-function classic_theme_scripts()
+function minimal_theme_scripts()
 {
     // Enqueue main stylesheet
     wp_enqueue_style(
-        'classic-theme-style',
-        get_template_directory_uri() . '/css/style.css',
+        'minimal-theme-style',
+        get_template_directory_uri() . '/assets/css/main.css',
         array(),
-        filemtime(get_template_directory() . '/css/style.css')
+        filemtime(get_template_directory() . '/assets/css/main.css')
     );
 
     // Enqueue main JavaScript file (no jQuery dependency)
-    wp_enqueue_script('classic-theme-script', get_template_directory_uri() . '/js/main.js', array(), wp_get_theme()->get('Version'), true);
+    wp_enqueue_script('minimal-theme-script', get_template_directory_uri() . '/assets/js/main.js', array(), wp_get_theme()->get('Version'), true);
 }
-add_action('wp_enqueue_scripts', 'classic_theme_scripts');
+add_action('wp_enqueue_scripts', 'minimal_theme_scripts');
 
 // Remove classic theme styles completely
-function remove_classic_theme_styles()
+function minimal_theme_remove_styles()
 {
     wp_dequeue_style('classic-theme-styles');
     wp_deregister_style('classic-theme-styles');
@@ -82,16 +82,13 @@ function remove_classic_theme_styles()
 }
 
 // Apply at multiple hook points to ensure it's removed
-add_action('wp_enqueue_scripts', 'remove_classic_theme_styles', 100);
-add_action('enqueue_block_assets', 'remove_classic_theme_styles', 100);
-
-
-
+add_action('wp_enqueue_scripts', 'minimal_theme_remove_styles', 100);
+add_action('enqueue_block_assets', 'minimal_theme_remove_styles', 100);
 
 /**
  * Disable Block Editor and related styles
  */
-function classic_theme_disable_block_editor()
+function minimal_theme_disable_block_editor()
 {
     // Disable Gutenberg on the back end
     add_filter('use_block_editor_for_post', '__return_false', 10);
@@ -109,33 +106,33 @@ function classic_theme_disable_block_editor()
     remove_action('wp_enqueue_scripts', 'wp_enqueue_global_styles');
     remove_action('wp_body_open', 'wp_global_styles_render_svg_filters');
 }
-add_action('wp_enqueue_scripts', 'classic_theme_disable_block_editor', 100);
-add_action('admin_init', 'classic_theme_disable_block_editor', 100);
+add_action('wp_enqueue_scripts', 'minimal_theme_disable_block_editor', 100);
+add_action('admin_init', 'minimal_theme_disable_block_editor', 100);
 
 /**
  * Enable Classic Widgets
  */
 // This function will run when the theme is activated
-function classic_theme_enable_classic_widgets()
+function minimal_theme_enable_classic_widgets()
 {
     update_option('use_widgets_block_editor', false);
 }
-add_action('after_switch_theme', 'classic_theme_enable_classic_widgets');
+add_action('after_switch_theme', 'minimal_theme_enable_classic_widgets');
 
 /**
  * Enable Classic Editor
  */
-function classic_theme_enable_classic_editor()
+function minimal_theme_enable_classic_editor()
 {
     update_option('classic-editor-replace', 'classic');
     update_option('classic-editor-allow-users', 'disallow');
 }
-add_action('after_switch_theme', 'classic_theme_enable_classic_editor');
+add_action('after_switch_theme', 'minimal_theme_enable_classic_editor');
 
 /**
  * Add body classes
  */
-function classic_theme_body_classes($classes)
+function minimal_theme_body_classes($classes)
 {
     // Add a class if we're on a single post
     if (is_single()) {
@@ -144,7 +141,7 @@ function classic_theme_body_classes($classes)
 
     return $classes;
 }
-add_filter('body_class', 'classic_theme_body_classes');
+add_filter('body_class', 'minimal_theme_body_classes');
 
 /**
  * Get our wp_nav_menu() fallback, wp_page_menu(), to show a home link.
@@ -152,64 +149,73 @@ add_filter('body_class', 'classic_theme_body_classes');
  * @param array $args Configuration arguments.
  * @return array
  */
-function classic_theme_page_menu_args($args)
+function minimal_theme_page_menu_args($args)
 {
     $args['show_home'] = true;
     return $args;
 }
-add_filter('wp_page_menu_args', 'classic_theme_page_menu_args');
+add_filter('wp_page_menu_args', 'minimal_theme_page_menu_args');
 
 /**
  * Adds custom classes to the array of body classes.
  */
-function classic_theme_pingback_header()
+function minimal_theme_pingback_header()
 {
     if (is_singular() && pings_open()) {
         echo '<link rel="pingback" href="', esc_url(get_bloginfo('pingback_url')), '">';
     }
 }
-add_action('wp_head', 'classic_theme_pingback_header');
+add_action('wp_head', 'minimal_theme_pingback_header');
 
 /**
  * Enqueue admin.css for admin pages only
  */
-function classic_theme_admin_styles()
+function minimal_theme_admin_styles()
 {
-    // Get the CSS file path
-    $admin_css = get_template_directory_uri() . '/admin-enhancements/css/admin.css';
+    // Check if the file exists
+    $admin_css_path = get_template_directory() . '/cms/css/admin.css';
+    if (file_exists($admin_css_path)) {
+        // Get the CSS file path
+        $admin_css = get_template_directory_uri() . '/cms/css/admin.css';
 
-    // Enqueue the admin CSS file
-    wp_enqueue_style(
-        'classic-theme-admin-styles',
-        $admin_css,
-        array(),
-        filemtime(get_template_directory() . '/admin-enhancements/css/admin.css'),
-        'all'
-    );
+        // Enqueue the admin CSS file
+        wp_enqueue_style(
+            'minimal-theme-admin-styles',
+            $admin_css,
+            array(),
+            filemtime($admin_css_path),
+            'all'
+        );
+    }
 }
 // Hook into admin_enqueue_scripts which only fires on admin pages
-add_action('admin_enqueue_scripts', 'classic_theme_admin_styles');
+add_action('admin_enqueue_scripts', 'minimal_theme_admin_styles');
 
 /**
  * Enqueue login.css for the login page only
  */
-function classic_theme_login_styles()
+function minimal_theme_login_styles()
 {
-    // Get the CSS file path
-    $login_css = get_template_directory_uri() . '/admin-enhancements/css/login.css';
+    // Check if the file exists
+    $login_css_path = get_template_directory() . '/cms/css/login.css';
+    if (file_exists($login_css_path)) {
+        // Get the CSS file path
+        $login_css = get_template_directory_uri() . '/cms/css/login.css';
 
-    // Enqueue the login CSS file
-    wp_enqueue_style(
-        'classic-theme-login-styles',
-        $login_css,
-        array(),
-        filemtime(get_template_directory() . '/admin-enhancements/css/login.css'),
-        'all'
-    );
+        // Enqueue the login CSS file
+        wp_enqueue_style(
+            'minimal-theme-login-styles',
+            $login_css,
+            array(),
+            filemtime($login_css_path),
+            'all'
+        );
+    }
 }
 // Hook into login_enqueue_scripts which only fires on the login page
-add_action('login_enqueue_scripts', 'classic_theme_login_styles');
+add_action('login_enqueue_scripts', 'minimal_theme_login_styles');
 
+// Remove unnecessary WordPress header tags
 remove_action('wp_head', 'rsd_link'); //removes EditURI/RSD (Really Simple Discovery) link.
 remove_action('wp_head', 'wlwmanifest_link'); //removes wlwmanifest (Windows Live Writer) link.
 remove_action('wp_head', 'wp_generator'); //removes meta name generator.
@@ -220,13 +226,12 @@ remove_action('wp_head', 'adjacent_posts_rel_link_wp_head'); // Removes prev and
 
 /**
  * Remove WordPress Dashicons from the frontend
- * Add this code to your theme's functions.php file
  */
-function remove_dashicons_from_frontend()
+function minimal_theme_remove_dashicons_frontend()
 {
     // Only remove Dashicons for non-admin users
     if (!is_admin() && !is_customize_preview() && !is_user_logged_in()) {
         wp_deregister_style('dashicons');
     }
 }
-add_action('wp_enqueue_scripts', 'remove_dashicons_from_frontend', 999);
+add_action('wp_enqueue_scripts', 'minimal_theme_remove_dashicons_frontend', 999);

@@ -1,15 +1,14 @@
-// Import abstracts
-@import "abstracts/variables";
-@import "abstracts/mixins";
+@use "util/mixins";
+@use "util/variables";
 
-// Import layouts
-@import "layouts/default";
+// Import templates
+@use "components/accordion";
 
 // Import components
-@import "components/header";
-@import "components/navigation";
-@import "components/content";
-@import "components/footer";
+@use "templates/header";
+@use "templates/navigation";
+@use "templates/content";
+@use "templates/footer";
 
 /* Base Styles */
 :root {
@@ -24,7 +23,7 @@
 }
 
 html {
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.6;
   box-sizing: border-box;
 }
