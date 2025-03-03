@@ -1,25 +1,19 @@
 # Minimal Theme
 
-A clean, lightweight WordPress theme designed with simplicity in mind. This theme provides a classic WordPress experience without Gutenberg blocks, with a focus on performance and clean code.
+A clean, lightweight WordPress theme designed with simplicity in mind. This theme provides a classic WordPress experience without Gutenberg blocks, with a focus on performance and accessibility.
 
-## Features
+## Goal
 
-- ACF & ACF Extended at it's core
-- No Gutenberg Blocks
+- Minimal ACF (ACF Pro & ACF Extended Pro) starter theme for client projects
+- Get rid of other plugins
 - Cleaned WP Backend
-- SCSS workflow for advanced styling
+- scss workflow
 
 ## Requirements
 
 - WordPress 5.0 or higher
 - PHP 7.4 or higher
 - Node.js and NPM (for SCSS development)
-
-## Installation
-
-1. Upload the theme folder to your `/wp-content/themes/` directory
-2. Activate the theme through the 'Themes' menu in WordPress
-3. Configure theme settings through the WordPress Customizer
 
 ## Development Setup
 
@@ -37,11 +31,11 @@ The theme uses a modern SCSS workflow:
 
 ```
 scss/
-├── abstracts/        # Variables, mixins, functions
-├── components/       # Component styles (header, footer, etc.)
-├── layouts/          # Layout styles
-├── admin/            # Admin-specific styles
-└── main.scss         # Main SCSS file that imports all others
+├── cms/              # WP Backend & Login Styles
+├── components/       # ACF Flexible Content Components
+├── templates/        # Header, Footer, Navigation and Template Styles
+├── util/             # Variables, Resets and Mixins
+└── main.scss         # Main SCSS file
 ```
 
 ### NPM Commands
@@ -60,18 +54,7 @@ scss/
 
 ## Theme Structure
 
-```
-minimal-theme/
-├── admin-enhancements/  # Admin UI customizations
-├── css/                # Compiled CSS files
-├── js/                 # JavaScript files
-├── scss/               # SCSS source files
-├── index.php           # Main template file
-├── functions.php       # Theme functions
-├── header.php          # Header template
-├── footer.php          # Footer template
-└── style.css           # Theme information
-```
+wip
 
 ## Admin Enhancements
 
