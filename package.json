@@ -33,5 +33,12 @@
   },
   "dependencies": {
     "browser-sync": "^3.0.3"
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {
+        "cascade": false
+      }
+    }
   }
 }
