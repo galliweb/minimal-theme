@@ -9,6 +9,12 @@ A clean, lightweight WordPress theme designed with simplicity in mind. This them
 - Cleaned WP Backend
 - scss workflow
 
+## WIP to add
+- ACF Flexible Content Layouts
+- Accordion (github.com/accessibility/a11y-courses)
+- Navigation (Adapt https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-navigation-hybrid/)
+- Nav 2 - Adapt https://codepen.io/brettsmason/pen/oMroJy
+
 ## Requirements
 
 - WordPress 5.0 or higher
