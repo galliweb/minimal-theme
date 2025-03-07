@@ -8,6 +8,7 @@ A clean, lightweight WordPress theme designed with simplicity in mind. This them
 - Get rid of other plugins
 - Cleaned WP Backend
 - scss workflow
+
 ~~This text will be crossed out~~
 
 ## WIP to add
