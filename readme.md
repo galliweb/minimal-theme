@@ -8,7 +8,7 @@ A clean, lightweight WordPress theme designed with simplicity in mind. This them
 - Get rid of other plugins
 - Cleaned WP Backend
 - scss workflow
-~~~ TEst ~~~
+~~ TEst ~~~
 
 ## WIP to add
 - ACF Flexible Content Layouts
