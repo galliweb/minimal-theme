@@ -1,14 +1,8 @@
-@use "util/base";
-@use "util/mixins";
+@use 'components';
+@use 'queries';
+@use 'theme';
+@use 'template-parts';
 
-// Import templates
-@use "components/accordion";
-
-// Import components
-@use "templates/header";
-@use "templates/loop";
-@use "templates/content";
-@use "templates/footer";
 
 /* Base Styles */
 :root {
@@ -22,16 +16,15 @@
   --container-width: 1200px;
 }
 
-html {
-  font-size: 16px;
-  line-height: 1.6;
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
+img {
+  display: block;
+  max-width: 100%;
 }
 
 body {
@@ -283,7 +276,7 @@ ol {
   color: var(--link-hover-color);
 }
 
-.main-navigation ul li.menu-item-has-children > a {
+.main-navigation ul li.menu-item-has-children>a {
   padding-right: 1.5rem;
 }
 
@@ -395,7 +388,7 @@ ol {
   padding: 0.5rem 0;
 }
 
-.mobile-navigation ul li.menu-item-has-children > a {
+.mobile-navigation ul li.menu-item-has-children>a {
   margin-bottom: 0.5rem;
 }
 

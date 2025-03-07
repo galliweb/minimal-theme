@@ -9,7 +9,6 @@ A clean, lightweight WordPress theme designed with simplicity in mind. This them
 - Cleaned WP Backend
 - scss workflow
 
-~~This text will be crossed out~~
 
 ## WIP to add
 - ACF Flexible Content Layouts
@@ -34,8 +33,6 @@ This theme uses SCSS for styling, which needs to be compiled to CSS. Follow thes
 3. Run `npm install` to install all dependencies
 
 ### SCSS Development
-
-The theme uses a modern SCSS workflow:
 
 ```
 scss/
