@@ -592,3 +592,175 @@ ol {
   color: white;
   text-decoration: none;
 }
+
+// A11Y MENU TEST
+/**
+ * Harvard Web Publishing (HWP) style navigation CSS
+ */
+
+/* Utility classes */
+.hwp-visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.hwp-block {
+  display: block !important;
+}
+
+/* Main menu container */
+.hwp-main-menu {
+  position: relative;
+  z-index: 100;
+}
+
+.hwp-main-menu__container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Main menu list */
+.hwp-main-menu__list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Mobile view */
+@media (max-width: 991px) {
+  .hwp-main-menu__list {
+    flex-direction: column;
+  }
+
+  body.body--header-site-menu-open .hwp-main-menu {
+    display: block;
+  }
+
+  body:not(.body--header-site-menu-open) .hwp-main-menu {
+    display: none;
+  }
+}
+
+/* Menu items */
+.hwp-main-menu__item {
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+.hwp-main-menu__link {
+  display: block;
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.hwp-main-menu__link.is-active {
+  font-weight: bold;
+}
+
+/* Expanded item wrapper */
+.hwp-expanded-item--wrapper {
+  display: flex;
+  align-items: center;
+}
+
+/* Submenu trigger button */
+.hwp-main-menu__submenu-trigger-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  color: inherit;
+}
+
+.material-icon {
+  font-size: 24px;
+  line-height: 1;
+}
+
+/* For themes without material icons, use a simple + symbol */
+.material-icon:not(:defined)::before {
+  content: "+";
+}
+
+[aria-expanded="true"] .material-icon:not(:defined)::before {
+  content: "-";
+}
+
+/* Submenu */
+.hwp-main-menu__list-submenu {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  min-width: 200px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 0;
+  z-index: 1000;
+}
+
+.hwp-main-menu__item--has-submenu.is-open>.hwp-main-menu__list-submenu {
+  display: block;
+}
+
+/* Submenu positioning */
+.hwp-main-menu__list-submenu--reversed {
+  left: auto;
+  right: 0;
+}
+
+/* Mobile submenu styling */
+@media (max-width: 991px) {
+  .hwp-main-menu__list-submenu {
+    position: static;
+    box-shadow: none;
+    border-left: 3px solid rgba(0, 0, 0, 0.1);
+    margin-left: 1rem;
+  }
+
+  .hwp-expanded-item--wrapper {
+    justify-content: space-between;
+  }
+}
+
+/* Mobile menu trigger button */
+.hwp-header-site__menu-trigger {
+  display: none;
+  background: transparent;
+  border: 1px solid currentColor;
+  padding: 0.5rem 1rem;
+  margin: 1rem;
+  cursor: pointer;
+}
+
+@media (max-width: 991px) {
+  .hwp-header-site__menu-trigger {
+    display: block;
+  }
+}
+
+/* For WordPress admin bar compatibility */
+body.admin-bar .hwp-main-menu {
+  margin-top: 32px;
+}
+
+@media screen and (max-width: 782px) {
+  body.admin-bar .hwp-main-menu {
+    margin-top: 46px;
+  }
+}

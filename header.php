@@ -54,60 +54,113 @@
                         <?php endif; ?>
                     <?php endif; ?>
                 </div><!-- .site-branding -->
-
-                <nav id="site-navigation" class="main-navigation" aria-label="<?php esc_attr_e('Main Navigation', 'classic-theme'); ?>">
-                    <button class="menu-toggle" aria-controls="mobile-menu" aria-expanded="false">
-                        <span class="screen-reader-text"><?php esc_html_e('Menu', 'classic-theme'); ?></span>
-                        <svg class="burger-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="3" y1="12" x2="21" y2="12"></line>
-                            <line x1="3" y1="6" x2="21" y2="6"></line>
-                            <line x1="3" y1="18" x2="21" y2="18"></line>
-                        </svg>
-                    </button>
-                    <?php if (!wp_is_mobile()): ?>
-                        <div class="desktop-menu-container">
                             <?php
-                            wp_nav_menu(
-                                array(
-                                    'theme_location' => 'main-navigation',
-                                    'menu_id'        => 'primary-menu',
-                                    'container'      => false,
-                                    'menu_class'     => 'menu',
-                                    'fallback_cb'    => 'wp_page_menu',
-                                    'items_wrap'     => '<ul id="%1$s" class="%2$s" aria-label="' . esc_attr__('Primary menu', 'classic-theme') . '">%3$s</ul>',
-                                )
-                            );
-                            ?>
-                        </div>
-                    <?php endif; ?>
-                </nav><!-- #site-navigation -->
+/**
+ * Navigation template for WordPress using Harvard Web Publishing (HWP) style
+ */
+?>
+<nav class="hwp-main-menu" aria-label="<?php esc_attr_e('Main', 'classic-theme'); ?>">
+  <div class="hwp-main-menu__container">
+    <?php
+    // Custom walker to generate the HWP-style menu structure
+    class HWP_Menu_Walker extends Walker_Nav_Menu {
+        public function start_lvl(&$output, $depth = 0, $args = null) {
+            $output .= '<ul class="hwp-main-menu__list-submenu" tabindex="-1">';
+        }
+        
+        public function end_lvl(&$output, $depth = 0, $args = null) {
+            $output .= '</ul>';
+        }
+        
+        public function start_el(&$output, $item, $depth = 0, $args = null, $id = 0) {
+            $classes = empty($item->classes) ? array() : (array) $item->classes;
+            
+            // Check if item has children
+            $has_children = in_array('menu-item-has-children', $classes);
+            
+            // Add HWP-specific classes
+            $class_names = 'hwp-main-menu__item';
+            if ($has_children) {
+                $class_names .= ' hwp-main-menu__item--has-submenu';
+            }
+            
+            // Start the menu item
+            $output .= '<li class="' . esc_attr($class_names) . '">';
+            
+            // For items with children at top level, wrap link in a div
+            if ($has_children && $depth === 0) {
+                $output .= '<div data-level="' . esc_attr($depth) . '" class="hwp-expanded-item--wrapper">';
+            }
+            
+            // Add the menu link
+            $atts = array();
+            $atts['href'] = !empty($item->url) ? $item->url : '';
+            $atts['class'] = 'hwp-main-menu__link';
+            
+            if (in_array('current-menu-item', $classes)) {
+                $atts['class'] .= ' is-active';
+                $atts['aria-current'] = 'page';
+            }
+            
+            $attributes = '';
+            foreach ($atts as $attr => $value) {
+                if (!empty($value)) {
+                    $value = ('href' === $attr) ? esc_url($value) : esc_attr($value);
+                    $attributes .= ' ' . $attr . '="' . $value . '"';
+                }
+            }
+            
+            $title = apply_filters('the_title', $item->title, $item->ID);
+            $item_output = $args->before;
+            $item_output .= '<a' . $attributes . '>';
+            $item_output .= $args->link_before . $title . $args->link_after;
+            $item_output .= '</a>';
+            
+            // Add dropdown toggle button for parent items
+            if ($has_children) {
+                $item_output .= '<button class="js-hwp-main-menu__submenu-trigger hwp-main-menu__submenu-trigger-icon" aria-expanded="false">';
+                $item_output .= '<span class="hwp-visually-hidden">' . esc_html($title) . '</span>';
+                $item_output .= '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="!hwp-block" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>';
+
+                $item_output .= '</button>';
+            }
+            
+            // Close the wrapper div for parent items at top level
+            if ($has_children && $depth === 0) {
+                $item_output .= '</div>';
+            }
+            
+            $output .= $args->before . $item_output . $args->after;
+        }
+        
+        public function end_el(&$output, $item, $depth = 0, $args = null) {
+            $output .= '</li>';
+        }
+    }
+    
+    // Generate the menu
+    wp_nav_menu(
+        array(
+            'theme_location' => 'main-navigation',
+            'menu_id'        => 'primary-menu',
+            'container'      => false,
+            'menu_class'     => 'hwp-main-menu__list',
+            'fallback_cb'    => 'wp_page_menu',
+            'walker'         => new HWP_Menu_Walker(),
+            'items_wrap'     => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+        )
+    );
+    ?>
+  </div>
+</nav>
+
+<?php
+// Mobile menu button code can be placed elsewhere in your header if needed
+?>
+<button class="js-header-site__menu-trigger hwp-header-site__menu-trigger" aria-expanded="false">
+  <div>Menu</div>
+</button>
             </div><!-- .container -->
         </header><!-- #masthead -->
-
-        <!-- Mobile Navigation -->
-        <div id="mobile-navigation" class="mobile-nav-container" aria-hidden="true" tabindex="-1">
-            <div class="mobile-nav-inner">
-                <?php
-                wp_nav_menu(
-                    array(
-                        'theme_location' => 'mobile-navigation',
-                        'menu_id'        => 'mobile-menu',
-                        'container'      => 'nav',
-                        'container_class' => 'mobile-navigation',
-                        'menu_class'     => 'mobile-menu',
-                        'depth'          => 3,
-                        'fallback_cb'    => 'wp_page_menu',
-                        'items_wrap'     => '<ul id="%1$s" class="%2$s" aria-label="' . esc_attr__('Mobile menu', 'classic-theme') . '">%3$s</ul>',
-                    )
-                );
-                ?>
-                <button class="close-mobile-nav" aria-label="<?php esc_attr_e('Close menu', 'classic-theme'); ?>">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="18" y1="6" x2="6" y2="18"></line>
-                        <line x1="6" y1="6" x2="18" y2="18"></line>
-                    </svg>
-                </button>
-            </div>
-        </div>
 
         <div id="content" class="site-content">
