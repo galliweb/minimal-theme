@@ -1,1 +1,110 @@
-﻿@import "tailwindcss";
+﻿/* Accessible Navigation Styles */
+
+/* Base menu styles */
+.main-navigation {
+  position: relative;
+}
+
+.main-navigation ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.main-navigation li {
+  position: relative;
+  margin-right: 1rem;
+}
+
+.main-navigation a {
+  display: inline-block;
+  padding: 0.5rem 0;
+  text-decoration: none;
+  color: #333;
+}
+
+.main-navigation a:hover,
+.main-navigation a:focus {
+  text-decoration: underline;
+}
+
+/* Current menu item styling */
+.main-navigation .current-menu-item > a,
+.main-navigation .current_page_item > a {
+  font-weight: bold;
+}
+
+/* Submenu toggle button */
+.submenu-toggle {
+  background: transparent;
+  border: none;
+  padding: 0.25rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  color: #333;
+}
+
+.submenu-toggle:hover,
+.submenu-toggle:focus {
+  color: #000;
+  outline: 2px solid #007bff;
+  border-radius: 3px;
+}
+
+/* Submenu styles */
+.main-navigation .sub-menu {
+  position: absolute;
+  left: 0;
+  z-index: 100;
+  min-width: 200px;
+  background: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  padding: 0.5rem 0;
+  flex-direction: column;
+}
+
+.main-navigation .sub-menu .sub-menu {
+  left: 100%;
+  top: 0;
+}
+
+.main-navigation .sub-menu li {
+  margin-right: 0;
+  width: 100%;
+}
+
+.main-navigation .sub-menu a {
+  padding: 0.5rem 1rem;
+  width: 100%;
+}
+
+/* Screen reader text */
+.screen-reader-text {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  word-wrap: normal !important;
+}
+
+/* Focus styles for accessibility */
+a:focus,
+button:focus {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+/* Keyboard navigation focus indicators */
+.main-navigation a:focus-visible,
+.submenu-toggle:focus-visible {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
