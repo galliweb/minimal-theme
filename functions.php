@@ -16,6 +16,7 @@ require_once get_template_directory() . '/inc/remove-comments.php';
 require_once get_template_directory() . '/inc/remove-dashboard-widgets.php';
 require_once get_template_directory() . '/inc/remove-wordpress-defaults.php';
 require_once get_template_directory() . '/inc/seo.php';
+require_once get_template_directory() . '/inc/helpers/login-tweaks.php';
 
 /**
  * Include core theme files

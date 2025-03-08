@@ -1,20 +1,4 @@
-@use 'components';
-@use 'queries';
-@use 'theme';
-@use 'template-parts';
-
-
-/* Base Styles */
-:root {
-  --primary-color: #333;
-  --secondary-color: #666;
-  --link-color: #0073aa;
-  --link-hover-color: #005177;
-  --background-color: #fff;
-  --text-color: #333;
-  --border-color: #ddd;
-  --container-width: 1200px;
-}
+@use 'varutils';
 
 *,
 *::before,

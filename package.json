@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "sass": "sass scss/main.scss:assets/css/main.css scss/cms/_admin.scss:assets/css/admin.css scss/cms/_login.scss:assets/css/login.css --style=compressed --source-map",
-    "sass:watch": "sass --watch scss/main.scss:assets/css/main.css scss/cms/_admin.scss:assets/css/admin.css scss/cms/_login.scss:assets/css/login.css --style=compressed --source-map",
+    "sass": "sass scss/main.scss:assets/css/main.css scss/_admin.scss:assets/css/admin.css scss/_login.scss:assets/css/login.css --style=compressed --source-map",
+    "sass:watch": "sass --watch scss/main.scss:assets/css/main.css scss/_admin.scss:assets/css/admin.css scss/_login.scss:assets/css/login.css --style=compressed --source-map",
     "postcss": "postcss assets/css/*.css --use autoprefixer --replace",
     "build": "npm-run-all sass postcss",
     "browser-sync": "browser-sync start --proxy 'https://fastpage-playground.local/' --files 'assets/css/*.css, assets/js/*.js, **/*.php' --inject-changes --no-notify --open=false --host 'fastpage-playground.local' --port 3000",
-    "dev": "npm-run-all --parallel sass:watch browser-sync",
+    "dev": "npm-run-all --parallel sass:watch",
     "start": "npm run dev",
     "production": "npm run build"
   },

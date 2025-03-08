@@ -1,0 +1,115 @@
+@use 'varutils' as *;
+
+#dashboard-widgets .postbox-container .empty-container {
+  display: none;
+}
+
+/* Hide User Switching for Video tutorials - you find the back to user link on top right */
+div#user_switching {
+  display: none !important;
+}
+
+/* Converter for Media Komponenten ausblenden */
+.notice.notice-success.is-dismissible,
+.notice.notice-warning {
+  display: none !important;
+}
+
+/* Happyfiles überall ausser Medien ausblenden */
+.wp-admin:not(.post-type-attachment) #happyfiles-sidebar {
+  display: none !important;
+}
+
+/* Allgemeine Notifications ausblenden */
+.editor-template-validation-notice.components-notice.is-warning,
+.components-notice.is-warning.is-dismissible {
+  display: none !important;
+}
+
+/* ASE Werbung ausblenden */
+.asenha-support-nudge.nudge-show-more.is-enabled,
+.asenha-upgrade-nudge,
+.asenha-header-action,
+a#plugin-upgrade {
+  display: none !important;
+}
+
+// BACKEND CONTROLS
+// --------------------
+// Bleistift Button in Block Editor Top Leiste links
+button#\:r3\: {
+  display: none !important;
+}
+
+/* Medien in Block auswahl ausblenden */
+button#tabs-1-media {
+  display: none !important;
+}
+
+/* Custom admin theme */
+.tablenav .actions select,
+input#delete_all,
+.metabox-prefs .screen-options .screen-per-page,
+#doaction,
+#doaction2,
+#post-query-submit,
+button.wsf-button.wsf-button-information,
+input[type="button"].wsf-button.wsf-button-information,
+input[type="submit"].wsf-button.wsf-button-information,
+input[type="reset"].wsf-button.wsf-button-information,
+a.wsf-button.wsf-button-information,
+select.wsf-button.wsf-button-information,
+.wsf-header .wsf-button+.wsf-button,
+.search-box input[name="s"],
+.tablenav .search-plugins input[name="s"],
+.tagsdiv .newtag,
+.wp-core-ui p .button,
+#screen-meta-links .show-settings,
+.wrap .wp-heading-inline+.page-title-action,
+.media-frame.mode-grid .media-toolbar select,
+.media-frame.mode-grid.mode-edit .media-toolbar-secondary>.select-mode-toggle-button,
+.media-frame.mode-grid .wp-filter input[type="search"],
+#happyfiles-search-folders input,
+input[type="checkbox"],
+input[type="radio"],
+.acf-field textarea,
+.acf-field input[type="text"],
+.acf-field input[type="password"],
+.acf-field input[type="date"],
+.acf-field input[type="datetime"],
+.acf-field input[type="datetime-local"],
+.acf-field input[type="email"],
+.acf-field input[type="month"],
+.acf-field input[type="number"],
+.acf-field input[type="search"],
+.acf-field input[type="tel"],
+.acf-field input[type="time"],
+.acf-field input[type="url"],
+.acf-field input[type="week"],
+.acf-field textarea,
+.acf-field select,
+#major-publishing-actions input,
+#minor-publishing-actions .preview,
+#minor-publishing-actions input,
+input[type="radio"]:checked::before,
+a.iawp-button.purple,
+.wp-privacy-request-form input,
+.wp-core-ui select,
+input[type="number"].small-text,
+input[type="date"],
+input[type="datetime-local"],
+input[type="datetime"],
+input[type="email"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="time"],
+input[type="url"],
+input[type="week"],
+input.large-text,
+textarea.large-text {
+  border-radius: 0 !important;
+}
