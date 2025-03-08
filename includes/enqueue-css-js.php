@@ -9,6 +9,8 @@ function minimal_theme_scripts()
     array(),
     filemtime(get_template_directory() . '/assets/css/main.css')
   );
+
+  wp_enqueue_style('tailwind-output', get_template_directory_uri() . '/src/output.css');
   // Enqueue main JavaScript file (no jQuery dependency)
   wp_enqueue_script('minimal-theme-script', get_template_directory_uri() . '/assets/js/main.js', array(), wp_get_theme()->get('Version'), true);
 }
