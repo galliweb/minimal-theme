@@ -26,12 +26,13 @@
   },
   "homepage": "https://github.com/galliweb/minimal-theme#readme",
   "devDependencies": {
+    "autoprefixer": "^10.4.20",
     "npm-run-all": "^4.1.5",
     "onchange": "^7.1.0",
+    "postcss-cli": "^11.0.0",
     "terser": "^5.39.0"
   },
   "dependencies": {
-    "autoprefixer": "^10.4.20",
     "postcss": "^8.5.3",
     "sass": "^1.85.1"
   }
