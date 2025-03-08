@@ -20,7 +20,7 @@ add_action("login_message", "custom_login_logo_text");
 
 // TEXT FEHLERMELDUNGEN ANPASSEN
 function gw_custom_login_errors() {
-    return "Da passt etwas nicht. Versuche es noch einmal oder setze dein Passwort zurück.";
+    return "Ungültig. Versuche es nochmals.";
 }
 add_filter("login_errors", "gw_custom_login_errors");
 

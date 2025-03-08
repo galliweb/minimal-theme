@@ -15,8 +15,8 @@ require_once get_template_directory() . '/includes/admin-enhancements.php';
 require_once get_template_directory() . '/includes/remove-comments.php';
 require_once get_template_directory() . '/includes/remove-dashboard-widgets.php';
 require_once get_template_directory() . '/includes/remove-wordpress-defaults.php';
-require_once get_template_directory() . '/includes/helpers/accessible-walker-nav-menu.php';
 require_once get_template_directory() . '/includes/helpers/login-tweaks.php';
+require_once get_template_directory() . '/includes/nav-walker.php';
 
 /**
  * Include core theme files
