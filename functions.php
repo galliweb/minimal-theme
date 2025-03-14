@@ -13,13 +13,13 @@ function starter_theme_scripts()
 {
   // Enqueue main stylesheet
   wp_enqueue_style(
-    'starter-theme-style',
+    'fastpage-style',
     get_template_directory_uri() . '/assets/css/frontend.css',
     array(),
     filemtime(get_template_directory() . '/assets/css/frontend.css')
   );
 
-  wp_enqueue_script('starter-theme-script', get_template_directory_uri() . '/assets/js/script.js', array(), wp_get_theme()->get('Version'), true);
+  wp_enqueue_script('fastpage-script', get_template_directory_uri() . '/assets/js/script.js', array(), wp_get_theme()->get('Version'), true);
 }
 add_action('wp_enqueue_scripts', 'starter_theme_scripts');
 
@@ -29,7 +29,7 @@ function starter_theme_admin_styles()
   $admin_css_path = get_template_directory() . '/assets/css/admin.css';
   if (file_exists($admin_css_path)) {
     wp_enqueue_style(
-      'starter-theme-admin-styles',
+      'fastpage-admin-styles',
       get_template_directory_uri() . '/assets/css/admin.css',
       array(),
       filemtime($admin_css_path),
@@ -44,7 +44,7 @@ function starter_theme_login_styles()
   $login_css_path = get_template_directory() . '/assets/css/login.css';
   if (file_exists($login_css_path)) {
     wp_enqueue_style(
-      'starter-theme-login-styles',
+      'fastpage-login-styles',
       get_template_directory_uri() . '/assets/css/login.css',
       array(),
       filemtime($login_css_path),

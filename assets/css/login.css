@@ -1,3 +1,21 @@
-.login h1 a,p.forgetmenot,p#backtoblog,form#language-switcher{display:none !important}p.custom-login-logo-text{font-weight:700 !important;font-size:1.5rem;text-align:center}input#wp-submit{width:100%;padding:.25em 1em}p#nav{text-align:center}
+.login h1 a,
+p.forgetmenot,
+p#backtoblog,
+form#language-switcher {
+  display: none !important;
+}
 
-/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3Njc3MvbG9naW4uc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFFQSw4REFJRSx1QkFBQSxDQUdGLHlCQUNFLDBCQUFBLENBQ0EsZ0JBQUEsQ0FDQSxpQkFBQSxDQUdGLGdCQUNFLFVBQUEsQ0FDQSxpQkFBQSxDQUdGLE1BQ0UsaUJBQUEiLCJmaWxlIjoibG9naW4uY3NzIn0= */
+p.custom-login-logo-text {
+  font-weight: var(--fw-700) !important;
+  font-size: var(--fs-24);
+  text-align: center;
+}
+
+input#wp-submit {
+  width: 100%;
+  padding: 0.25em 1em;
+}
+
+p#nav {
+  text-align: center;
+}
