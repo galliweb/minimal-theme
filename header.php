@@ -13,7 +13,7 @@
         <a class="skip-link screen-reader-text" href="#main"><?php esc_html_e('Zum Inhalt springen', 'starter-theme'); ?></a>
 
         <header class="main-header">
-            <div class="main-header-content">
+            <div class="wrapper">
                 <?php get_template_part('template-parts/site-branding'); ?>
                 <?php get_template_part('template-parts/nav'); ?>
             </div>

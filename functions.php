@@ -54,19 +54,15 @@ function starter_theme_login_styles()
 }
 add_action('login_enqueue_scripts', 'starter_theme_login_styles');
 
-/**
- * Include admin enhancements
- */
+/* Software Includes */
 require_once get_template_directory() . '/includes/admin-enhancements.php';
 require_once get_template_directory() . '/includes/remove-comments.php';
 require_once get_template_directory() . '/includes/remove-dashboard-widgets.php';
 require_once get_template_directory() . '/includes/remove-wordpress-defaults.php';
-require_once get_template_directory() . '/includes/helpers/login-tweaks.php';
+require_once get_template_directory() . '/includes/login-tweaks.php';
 require_once get_template_directory() . '/includes/nav-walker.php';
 
-/**
- * Include core theme files
- */
+/* Views */
 require_once get_template_directory() . '/includes/theme-setup.php';
 require_once get_template_directory() . '/includes/editor-config.php';
 require_once get_template_directory() . '/includes/helpers.php';
