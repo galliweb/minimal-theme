@@ -1,0 +1,27 @@
+{
+  "name": "minimal-theme",
+  "version": "1.0.0",
+  "description": "A clean, lightweight WordPress theme designed with simplicity in mind. This theme provides a classic WordPress experience without Gutenberg blocks, with a focus on performance and accessibility.",
+  "keywords": [],
+  "homepage": "https://github.com/galliweb/minimal-theme#readme",
+  "bugs": {
+    "url": "https://github.com/galliweb/minimal-theme/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/galliweb/minimal-theme.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "main.js",
+  "scripts": {
+    "start": "vite build --watch",
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "sass": "^1.86.0",
+    "vite": "^6.2.2"
+  }
+}

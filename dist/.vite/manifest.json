@@ -1,0 +1,11 @@
+{
+  "src/scripts/main.js": {
+    "file": "main-OybgkbIs.js",
+    "name": "main",
+    "src": "src/scripts/main.js",
+    "isEntry": true,
+    "css": [
+      "main-DBXED2ia.css"
+    ]
+  }
+}
