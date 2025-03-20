@@ -1,5 +1,3 @@
-</div><!-- #content -->
-
     <footer id="colophon" class="site-footer">
         <div class="container">
             <div class="footer-widgets">
@@ -21,12 +19,6 @@
                     </nav>
                 </div>
             </div>
-
-            <div class="site-info">
-                <div class="copyright">
-                    &copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>
-                </div>
-            </div><!-- .site-info -->
         </div><!-- .container -->
     </footer><!-- #colophon -->
 </div><!-- #page -->

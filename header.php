@@ -10,6 +10,9 @@
 <body <?php body_class(); ?>>
     <?php wp_body_open(); ?>
 
+
+
+
         <a class="skip-link screen-reader-text" href="#main"><?php esc_html_e('Zum Inhalt springen', 'starter-theme'); ?></a>
 
         <header class="main-header">
@@ -18,5 +21,3 @@
                 <?php get_template_part('template-parts/nav'); ?>
             </div>
         </header>
-
- <div id="content" class="site-content">
