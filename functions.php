@@ -9,7 +9,7 @@ if (!defined('ABSPATH')) {
 }
 
 
-// ... other code
+
 add_action('wp_enqueue_scripts', function(){
     $manifestPath = get_theme_file_path('dist/.vite/manifest.json');
 
@@ -19,21 +19,13 @@ add_action('wp_enqueue_scripts', function(){
  
         // Check if the file is in the manifest before enqueuing
         if (isset($manifest['src/scripts/main.js'])) {
-            wp_enqueue_script('mytheme', get_theme_file_uri('dist/' . $manifest['src/scripts/main.js']['file']));
-        }
-    }
-});
-
-add_action('wp_enqueue_scripts', function(){
-    $manifestPath = get_theme_file_path('dist/.vite/manifest.json');
- 
-    // Check if the manifest file exists and is readable before using it
-    if (file_exists($manifestPath)) {
-        $manifest = json_decode(file_get_contents($manifestPath), true);
- 
-        // Check if the file is in the manifest before enqueuing
-        if (isset($manifest['src/scripts/main.js'])) {
-            wp_enqueue_script('mytheme', get_theme_file_uri('dist/' . $manifest['src/scripts/main.js']['file']));
+            wp_enqueue_script(
+                'mytheme', 
+                get_theme_file_uri('dist/' . $manifest['src/scripts/main.js']['file']),
+                array(), // dependencies
+                null,    // version
+                true     // in footer
+            );
             // Enqueue the CSS file
             wp_enqueue_style('mytheme', get_theme_file_uri('dist/' . $manifest['src/scripts/main.js']['css'][0]));
         }
