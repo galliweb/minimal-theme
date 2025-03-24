@@ -1,21 +1,25 @@
-//vite.config.mjs
 import { defineConfig } from 'vite';
 import { resolve } from 'path';
 
-// Get the main.js where all your JavaScript files are imported
-const JS_FILE = resolve('src/scripts/main.js')
+const MAIN_FILE = resolve('src/scripts/main.js')
+const ADMIN_FILE = resolve('src/styles/admin.scss')
 
-// Define where the compiled and minified JavaScript files will be saved
 const BUILD_DIR = resolve(__dirname, 'dist');
 
 export default defineConfig({
   build: {
-    assetsDir: '', // Will save the compiled JavaScript files in the root of the dist folder
-    manifest: true, // Generate manifest.json file (for caching)
-    emptyOutDir: true, // Empty the dist folder before building
+    assetsDir: '',
+    manifest: true,
+    emptyOutDir: true,
     outDir: BUILD_DIR,
     rollupOptions: {
-      input: JS_FILE,
+      input: {
+        main: MAIN_FILE,
+        admin: ADMIN_FILE
+      },
     },
   },
+  css: {
+    devSourcemap: true,
+  }
 });
