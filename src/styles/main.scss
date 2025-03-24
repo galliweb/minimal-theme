@@ -1,7 +1,6 @@
 @use 'global' as *;
 @use 'components';
 @use 'theme';
-@use 'backend';
 
 h2+div {
   color: blue !important;

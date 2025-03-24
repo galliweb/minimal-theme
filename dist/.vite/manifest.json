@@ -1,11 +1,16 @@
 {
   "src/scripts/main.js": {
-    "file": "main-BkuizVBt.js",
+    "file": "main-Du1fl8zJ.js",
     "name": "main",
     "src": "src/scripts/main.js",
     "isEntry": true,
     "css": [
-      "main-Dyf-Q_Tj.css"
+      "main-BiUJfA2_.css"
     ]
+  },
+  "src/styles/admin.scss": {
+    "file": "admin-DuksVdOy.css",
+    "src": "src/styles/admin.scss",
+    "isEntry": true
   }
 }

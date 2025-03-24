@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<main id="main-content" class="site-main">
+<main id="main-content" class="main-content wrapper">
   <?php 
   if (have_posts()) :
     while (have_posts()) : the_post();

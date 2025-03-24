@@ -8,16 +8,13 @@
 </head>
 
 <body <?php body_class(); ?>>
-    <?php wp_body_open(); ?>
+<?php wp_body_open(); ?>
 
+<a class="skiplink" href="#main-content">zum Inhalt springen</a>
 
-
-
-        <a class="skip-link screen-reader-text" href="#main"><?php esc_html_e('Zum Inhalt springen', 'starter-theme'); ?></a>
-
-        <header class="main-header">
-            <div class="wrapper">
-                <?php get_template_part('template-parts/site-branding'); ?>
-                <?php get_template_part('template-parts/nav'); ?>
-            </div>
-        </header>
+<header class="main-header">
+     <div class="wrapper row-between">
+        <?php get_template_part('template-parts/theme/site-branding'); ?>
+        <?php get_template_part('template-parts/theme/header-nav'); ?>
+    </div>
+</header>

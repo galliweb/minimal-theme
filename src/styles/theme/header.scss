@@ -3,3 +3,21 @@
 header {
   background: $test;
 }
+
+// Skiplink
+.skiplink {
+  position: absolute;
+  background-color: white;
+  text-decoration: none;
+  z-index: 3;
+  left: 0;
+  top: 0;
+  padding: 20px;
+  font-size: 1.25rem;
+  transform: translateX(-100%);
+
+  &:focus,
+  &:focus-visible {
+    transform: translateX(0);
+  }
+}
